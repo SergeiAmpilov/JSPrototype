@@ -3,19 +3,24 @@ var b = [1, 'hello', 32];
 
 
 Array.prototype.double = function () {
-    // console.log(this);
+    
+
+
+    return this.map(function(element){
+        if (typeof(element) === 'number') {
+            return element * element;
+        } else if (typeof(element) === 'string') {
+            return element + element;
+        }
+
+        return element;
+    });
 
     var res = [];
 
     this.forEach(element => {
         console.log(typeof(element));
-        if (typeof(element) === 'number') {
-            res.push(element * element);
-        } else if (typeof(element) === 'string') {
-            res.push(element + element);
-        } else {
-            res.push(element);
-        }
+        
     });
 
     return res;
